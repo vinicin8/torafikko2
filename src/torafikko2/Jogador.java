@@ -19,7 +19,7 @@ public class Jogador extends Sprite {
     private boolean movendo = false;
     
     public Jogador(int x,int y) {
-       super(URL.sprite("car.png"),11);
+       super(URL.sprite("carro.png"),12);
        this.x = x;
        this.y = y;
        this.setTotalDuration(2000);
@@ -35,7 +35,7 @@ public class Jogador extends Sprite {
             }
 
             if (direcao != 1) {
-               // setSequence(1,4);
+                setSequence(2,3);
                 direcao = 1;
             }
             movendo = true;
@@ -44,7 +44,7 @@ public class Jogador extends Sprite {
                 this.x += velocidade;
             }
             if (direcao != 2) {
-               // setSequence(8, 12);
+                setSequence(4, 6);
                 direcao = 2;
             }
             movendo = true;
@@ -53,7 +53,7 @@ public class Jogador extends Sprite {
                 this.y -= velocidade;
             }
             if (direcao != 4) {
-                //setSequence(12, 16);
+                setSequence(7, 8);
                 direcao = 4;
             }
             movendo = true;
@@ -62,7 +62,7 @@ public class Jogador extends Sprite {
                 this.y += velocidade;
             }
             if (direcao != 5) {
-                //setSequence(0, 4);
+                setSequence(11, 12);
                 direcao = 5;
             }
             movendo = true;
