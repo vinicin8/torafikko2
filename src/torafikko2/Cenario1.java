@@ -19,29 +19,27 @@ public class Cenario1  {
         cena = new Scene();
         cena.loadFromFile(URL.scenario("scene.scn"));
         jogador = new Jogador(1,229);
+        teclado = janela.getKeyboard();
         
         run();
     }
     
     private void run(){
-        jogador.x=1.0;
-        jogador.y=317.0;
+
         
         
         
         while (true) {            
-            cena.draw();
+            jogador.controle(janela, teclado);
+           jogador.caminho(cena); 
+           //cena.draw();
+           cena.moveScene(jogador);
             jogador.draw();
-            jogador.mover(janela);
+            
+            
+            
             janela.update();
-            //jogador.controle(janela, teclado);
-            
-    
-            System.out.println("X: " +jogador.getX() + " Y: " + jogador.getY());
-            
+           // System.out.println("X: " +jogador.getX() + " Y: " + jogador.getY());
         }
-    
-        
     }
-   
 }
