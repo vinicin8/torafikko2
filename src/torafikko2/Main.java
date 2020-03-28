@@ -14,7 +14,6 @@ public class Main {
         Window janela = new Window(800, 600);
         
         while (true) {            
-            
             janela.update();
             new Cenario1(janela);
         }
