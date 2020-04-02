@@ -17,7 +17,7 @@ import jplay.*;
 public class Jogador extends Ator {
     
    static double energia = 1000;
-    
+     private double ataque = 1;
     public Jogador(int x,int y) {
        super(URL.sprite("carro.png"),12);
        this.x = x;
@@ -71,11 +71,30 @@ public class Jogador extends Ator {
     }
     
     public void vida(Window janela){
-    janela.drawText("Vida do point: " + Jogador.energia, 2, 10, Color.red);
-    
-    
+    janela.drawText("Vida do point: " + Jogador.energia, 2, 10, Color.red);}
+  
+    public void rota(Npc npc) {
+        if (this.collided(npc)) {
+           npc.x = 10_000;
+        }
+
+    }
+
+    public void rota2(Npc npc) {
+        if (this.collided(npc)) {
+           npc.x = 328;
+           npc.y = -50;
+        }
+
     }
     
-        
+     public void rota3(Npc npc) {
+        if (this.collided(npc)) {
+           npc.x = 412;
+           npc.y = 600;
+        }
+
     }
+}
+   
 

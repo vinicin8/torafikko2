@@ -13,15 +13,14 @@ import jplay.*;
 public class Npc extends Ator{
      private double ataque = 1;
     public Npc(int x, int y) {
-        super(URL.sprite("carro.png"), 12);
-        this.x=x;
-        this.y=y;
+        super(URL.sprite("infinity.png"), 12);
+        this.x = x;
+        this.y = y;
         this.setTotalDuration(2000);
-        this.velocidade= 1.0;
+        this.velocidade= 0.6;
     }
     
     public void perseguir(double x, double y){
-    
         if (this.x > x && this.y <= y + 50 && this.y >= y - 50) {
             moveTo(x, y, velocidade);
             if (direcao != 1) {
@@ -67,21 +66,32 @@ public class Npc extends Ator{
         }
         return false;
     }
-
-    public void atacar(Jogador jogador) {
-        if (this.collided(jogador)) {
-           Npc.energia -= this.ataque;
+    
+     public boolean morrerVert1() {
+        if (Npc.energia <= 0) {
+            this.velocidade = 0;
+            this.ataque = 0;
+            this.direcao = 0;
+            this.movendo = false;
+            this.x = 328;
+            this.y = -10;
+            return true;
         }
-
-        if (jogador.energia <= 0) {
-            System.exit(0);
+        return false;
+    }
+     
+    public boolean morrerVert2() {
+        if (Npc.energia <= 0) {
+            this.velocidade = 0;
+            this.ataque = 0;
+            this.direcao = 0;
+            this.movendo = false;
+            this.x = 412;
+            this.y = -10;
+            return true;
         }
-
-    }
-    
-    public void vida(Window janela){
-    janela.drawText("Vida do npc: " + Npc.energia, 2, 20, Color.red);
-    
-    
-    }
+        return false;
+    } 
 }
+    
+

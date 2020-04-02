@@ -18,14 +18,17 @@ import jplay.TileInfo;
  */
 public class Ator extends Sprite{
         Controle controle = new Controle();
-    double velocidade = 0.5;
+    double velocidade = 2.0;
     int direcao = 3;
     boolean movendo = false;
-    static double energia = 500;
-    
+    static double energia = 10.0;
+     private double ataque = 1;
+
     public Ator(String fileName, int numFrames) {
         super(fileName, numFrames);
     }
+    
+    
     /*
     *  Controle de caminhos percorríveis.
     *

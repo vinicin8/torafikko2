@@ -12,10 +12,11 @@ public class Main {
  
     public static void main(String[] args) {
         Window janela = new Window(800, 600);
-        
+        Keyboard teclado = janela.getKeyboard();
         while (true) {            
             janela.update();
             new Cenario1(janela);
+
         }
     }
     
