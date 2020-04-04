@@ -51,9 +51,9 @@ public class Ator extends Sprite{
                }
            }
                if(colisaoHorizontal(this,tile)){
-                if(tile.x > this.x + tile.width - 2 ){
+                if(tile.x > this.x + tile.width - 4 ){
                    this.x = tile.x - this.width;
-               } else {
+               } else if(tile.x + tile.width - 4 < this.x ) {
                     this.x = tile.x + tile.width;
                 }
            }
