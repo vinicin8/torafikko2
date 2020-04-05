@@ -73,18 +73,18 @@ public class Jogador extends Ator {
     
  
     
-    public void rota(Npc npc) {
+    public boolean rota(Npc npc) {
         if (this.collided(npc)) {
            npc.x = 10_000;
-           
+           return true;
         }
-    
+    return false;
     }
 
     public void rota2(Npc npc) {
         if (this.collided(npc)) {
            npc.x = 328;
-           npc.y = -50;
+           npc.y = -550;
         }
 
     }

@@ -12,6 +12,7 @@ import jplay.*;
  */
 public class Npc extends Ator{
      private double ataque = 1;
+ 
     public Npc(int x, int y) {
         super(URL.sprite("infinity.png"), 12);
         this.x = x;
