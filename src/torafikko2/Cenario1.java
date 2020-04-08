@@ -37,6 +37,8 @@ public class Cenario1 {
         run();
     }
 
+    
+     
     private void run() {
         ArrayList<Npc> npc = new ArrayList<>();
 
@@ -83,14 +85,50 @@ public class Cenario1 {
                 //(int) (Math.random() * (npc.size() - 1));
         int prioridade2 = 0;
                 //(int) (Math.random() * (npc2.length - 1));
-        System.out.println(prioridade2);
 
         while (true) {
+          
+            
             GameImage fim = new GameImage("src\\recursos\\fundos\\fim.png");
             GameImage fim2 = new GameImage("src\\recursos\\fundos\\fim2.png");
-            if (teclado.keyDown(Keyboard.S_KEY)) {
+           
+            Animation porta = new Animation("src\\recursos\\tiles\\porta.png"); porta.x= 192;porta.y= 128;
+            Animation porta1 = new Animation("src\\recursos\\tiles\\porta1.png"); porta1.x= 192;porta1.y= 160;
+            Animation teto = new Animation("src\\recursos\\tiles\\teto.png"); teto.x= 68;teto.y= -1;
+            Animation tenda2 = new Animation("src\\recursos\\tiles\\tenda2.png"); tenda2.x=92;tenda2.y=79;
+            Animation tenda = new Animation("src\\recursos\\tiles\\tenda.png"); tenda.x=60;tenda.y=79;
+            Animation tendaa = new Animation("src\\recursos\\tiles\\tenda.png"); tendaa.x=28;tendaa.y=79;
+            Animation tenda1 = new Animation("src\\recursos\\tiles\\tenda1.png"); tenda1.x=-4;tenda1.y=79;
+            Animation porta3 = new Animation("src\\recursos\\tiles\\door.png"); porta3.x=55;porta3.y=129; 
+            Animation hort = new Animation("src\\recursos\\tiles\\hort.png"); hort.x=90;hort.y=135; 
+            Animation hort1 = new Animation("src\\recursos\\tiles\\hort1.png"); hort1.x=10;hort1.y=135;
+            Animation chair = new Animation("src\\recursos\\tiles\\chair.png"); chair.x=108;chair.y=155;
+            
+            Animation car = new Animation("src\\recursos\\tiles\\car.png");car.x=545;car.y=32;
+            Animation car1= new Animation("src\\recursos\\tiles\\car1.png");car1.x=676;car1.y=124;
+            Animation car2= new Animation("src\\recursos\\tiles\\car2.png");car2.x=705;car2.y=32;
+            Animation car3= new Animation("src\\recursos\\tiles\\car3.png");car3.x=577;car3.y=32;
+            
+            Animation tree = new Animation("src\\recursos\\tiles\\tree.png");tree.x=545;tree.y=-5;
+            Animation tree1 = new Animation("src\\recursos\\tiles\\tree.png");tree1.x=609;tree1.y=-5;
+            Animation tree2 = new Animation("src\\recursos\\tiles\\tree.png");tree2.x=673;tree2.y=-5;
+            Animation tree3 = new Animation("src\\recursos\\tiles\\tree.png");tree3.x=737;tree3.y=-5;
+            
+            Animation tree4 = new Animation("src\\recursos\\tiles\\tree1.png");tree4.x=578;tree4.y=155;
+            Animation tree5 = new Animation("src\\recursos\\tiles\\tree1.png");tree5.x=642;tree5.y=155;
+            Animation tree6 = new Animation("src\\recursos\\tiles\\tree1.png");tree6.x=706;tree6.y=155;
+            Animation tree7 = new Animation("src\\recursos\\tiles\\tree1.png");tree7.x=770;tree7.y=155;
+            
+            Animation poste = new Animation("src\\recursos\\tiles\\post.png");poste.x= 500;poste.y=-35;
+            Animation poste1 = new Animation("src\\recursos\\tiles\\post.png");poste1.x= 500;poste1.y=45;
+            Animation poste2 = new Animation("src\\recursos\\tiles\\post.png");poste2.x= 520;poste2.y=92;
+            Animation poste3 = new Animation("src\\recursos\\tiles\\post.png");poste3.x= 730;poste3.y=92;
+            
+            Animation hot = new Animation("src\\recursos\\tiles\\hot.png");hot.x=595;hot.y=125;
+            Animation correio = new Animation("src\\recursos\\tiles\\correio.png");correio.x=680;correio.y=185;
+            Animation banco = new Animation("src\\recursos\\tiles\\banco1.png");banco.x=703;banco.y=-3;
+           if (teclado.keyDown(Keyboard.S_KEY)) {
                 cena.changeTile(7, 9, 20);
-
             } else if (teclado.keyDown(Keyboard.SPACE_KEY)) {
                 cena.changeTile(7, 9, 04);
             }
@@ -126,7 +164,7 @@ public class Cenario1 {
 
                 npc.get(i).draw();
 
-                npc.get(i).perseguir(jogador.x, jogador.y);
+                //npc.get(i).perseguir(jogador.x, jogador.y);
                 npc.get(i).morrer();
                 //jogador.rota(npc.get(i));
                 
@@ -175,7 +213,16 @@ public class Cenario1 {
                         if (teclado.keyDown(Keyboard.ENTER_KEY)) {
                             new Cenario1(janela);
                         }
-                        
+                        porta.hide();porta1.hide();
+                        teto.hide();
+                        tenda.hide();tendaa.hide();tenda1.hide();tenda2.hide();
+                        porta3.hide();
+                        hort.hide();hort1.hide();
+                        chair.hide();
+                        car.hide();car1.hide();car2.hide();car3.hide();
+                        tree.hide();tree1.hide();tree2.hide();tree3.hide();tree4.hide();tree5.hide();tree6.hide();tree7.hide();
+                        poste.hide();poste1.hide();poste2.hide();poste3.hide();
+                        hot.hide();correio.hide();banco.hide();
                         for (int l = 0; l < npc.size(); l++) {
                             npc.get(l).hide();
                             npc.get(l).velocidade = 0.0;
@@ -237,7 +284,17 @@ public class Cenario1 {
                         if (teclado.keyDown(Keyboard.ENTER_KEY)) {
                             new Cenario1(janela);
                         } 
-                        for (int l = 0; l < npc.size(); l++) {
+                         porta.hide();porta1.hide();
+                         teto.hide();
+                         tenda.hide();tendaa.hide();tenda1.hide();tenda2.hide();
+                         porta3.hide();
+                         hort.hide();hort1.hide();
+                         chair.hide();
+                         car.hide();car1.hide();car2.hide();car3.hide();
+                         tree.hide();tree1.hide();tree2.hide();tree3.hide();tree4.hide();tree5.hide();tree6.hide();tree7.hide();
+                        poste.hide();poste1.hide();poste2.hide();poste3.hide();
+                        hot.hide();correio.hide();banco.hide();
+                         for (int l = 0; l < npc.size(); l++) {
                             npc.get(l).hide();
                             npc.get(l).velocidade = 0.0;
                             npc.get(l).movendo = false;
@@ -295,8 +352,17 @@ public class Cenario1 {
                         if (teclado.keyDown(Keyboard.ENTER_KEY)) {
                             new Cenario1(janela);
                         } 
-                        
-                        for (int l = 0; l < npc.size(); l++) {
+                         porta.hide();porta1.hide();
+                         teto.hide();
+                         tenda.hide();tendaa.hide();tenda1.hide();tenda2.hide();
+                         porta3.hide();
+                         hort.hide();hort1.hide();
+                         chair.hide();
+                         car.hide();car1.hide();car2.hide();car3.hide();
+                         tree.hide();tree1.hide();tree2.hide();tree3.hide();tree4.hide();tree5.hide();tree6.hide();tree7.hide();
+                        poste.hide();poste1.hide();poste2.hide();poste3.hide();
+                        hot.hide();correio.hide();banco.hide();
+                         for (int l = 0; l < npc.size(); l++) {
                             npc.get(l).hide();
                             npc.get(l).velocidade = 0.0;
                             npc.get(l).movendo = false;
@@ -333,7 +399,7 @@ public class Cenario1 {
                 npc2[i].caminho(cena);
 
                 npc2[i].draw();
-                npc2[i].perseguir(jogador2.x, jogador2.y);
+                //npc2[i].perseguir(jogador2.x, jogador2.y);
                 npc2[i].morrer();
                 jogador2.rota(npc2[i]);
                 
@@ -369,7 +435,17 @@ public class Cenario1 {
                         if (teclado.keyDown(Keyboard.ENTER_KEY)) {
                             new Cenario1(janela);
                         } 
-                        for (int l = 0; l < npc.size(); l++) {
+                         porta.hide();porta1.hide();
+                         teto.hide();
+                         tenda.hide();tendaa.hide();tenda1.hide();tenda2.hide();
+                         porta3.hide();
+                         hort.hide();hort1.hide();
+                         chair.hide();
+                         car.hide();car1.hide();car2.hide();car3.hide();
+                         tree.hide();tree1.hide();tree2.hide();tree3.hide();tree4.hide();tree5.hide();tree6.hide();tree7.hide();
+                        poste.hide();poste1.hide();poste2.hide();poste3.hide();
+                        hot.hide();correio.hide();banco.hide();
+                         for (int l = 0; l < npc.size(); l++) {
                             npc.get(l).hide();
                             npc.get(l).velocidade = 0.0;
                             npc.get(l).movendo = false;
@@ -431,7 +507,17 @@ public class Cenario1 {
                         if (teclado.keyDown(Keyboard.ENTER_KEY)) {
                             new Cenario1(janela);
                         } 
-                        for (int l = 0; l < npc.size(); l++) {
+                         porta.hide();porta1.hide();
+                         teto.hide();
+                         tenda.hide();tendaa.hide();tenda1.hide();tenda2.hide();
+                         porta3.hide();
+                         hort.hide();hort1.hide();
+                         chair.hide();
+                         car.hide();car1.hide();car2.hide();car3.hide();
+                         tree.hide();tree1.hide();tree2.hide();tree3.hide();tree4.hide();tree5.hide();tree6.hide();tree7.hide();
+                        poste.hide();poste1.hide();poste2.hide();poste3.hide();
+                        hot.hide();correio.hide();banco.hide();
+                         for (int l = 0; l < npc.size(); l++) {
                             npc.get(l).hide();
                             npc.get(l).velocidade = 0.0;
                             npc.get(l).movendo = false;
@@ -473,7 +559,7 @@ public class Cenario1 {
                 npc3[i].y += cena.getYOffset();
                 npc3[i].caminho(cena);
 
-                npc3[i].draw();
+                //npc3[i].draw();
 
                 npc3[i].perseguir(jogador3.x, jogador3.y);
                 npc3[i].morrerVert1();
@@ -493,7 +579,7 @@ public class Cenario1 {
                 npc4[i].y += cena.getYOffset();
                 npc4[i].caminho(cena);
 
-                npc4[i].draw();
+                //npc4[i].draw();
 
                 npc4[i].perseguir(jogador4.x, jogador4.y);
                 npc4[i].morrerVert2();
@@ -513,7 +599,20 @@ public class Cenario1 {
             jogador2.draw();
             jogador3.draw();
             jogador4.draw();
-            //npc.vida(janela);
+            
+             porta.draw();porta1.draw();
+             teto.draw();
+             tenda.draw();tendaa.draw();tenda1.draw();tenda2.draw();
+             porta3.draw();
+             hort.draw();hort1.draw();
+             chair.draw();
+             car.draw();car1.draw();car2.draw();car3.draw();
+             tree.draw();tree1.draw();tree2.draw();tree3.draw();tree4.draw();tree5.draw();tree6.draw();tree7.draw();
+             poste.draw();poste1.draw();poste2.draw();poste3.draw();
+             hot.draw();
+             correio.draw();
+             banco.draw();
+             //npc.vida(janela);
             janela.drawText("Prioridade I: " + prioridade1, 2, 12, Color.WHITE, new Font("arial", Font.BOLD, 12));
             janela.drawText("Prioridade II: " + (prioridade2+npc.size()), 2, 20, Color.WHITE, new Font("arial", Font.BOLD, 12));
             janela.update();

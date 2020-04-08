@@ -26,6 +26,7 @@ public class Npc extends Ator{
             moveTo(x, y, velocidade);
             if (direcao != 1) {
                 setSequence(2, 3);
+                this.width=38;
                 direcao = 1;
             }
             movendo = true;
@@ -33,6 +34,7 @@ public class Npc extends Ator{
             moveTo(x, y, velocidade);
             if (direcao != 2) {
                 setSequence(4, 6);
+                 this.width=38;
             }
             movendo = true;
         } else if (this.y > y) {
@@ -40,12 +42,16 @@ public class Npc extends Ator{
             if (direcao != 4) {
                 setSequence(7, 8);
                 direcao = 4;
+                this.width=38;
+                this.height=32;
             }
             movendo = true;
         } else if (this.y < y) {
             moveTo(x, y, velocidade);
             if (direcao != 5) {
                 setSequence(11, 12);
+                this.width=38;
+                this.height=32;
                 direcao = 5;
             }
             movendo = true;
