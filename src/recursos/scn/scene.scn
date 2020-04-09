@@ -1,4 +1,4 @@
-70
+80
 src/recursos/tiles/street.png
 src/recursos/tiles/street1.png
 src/recursos/tiles/street2.png
@@ -19,8 +19,8 @@ src/recursos/tiles/sidewalk10.png
 src/recursos/tiles/sidewalk11.png
 19
 src/recursos/tiles/street3.png
-21
-22
+src/recursos/tiles/grama.png
+src/recursos/tiles/grama2.png
 23
 src/recursos/tiles/predio.png
 src/recursos/tiles/predio1.png
@@ -49,26 +49,36 @@ src/recursos/tiles/window.png
 src/recursos/tiles/park.png
 src/recursos/tiles/park1.png
 50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
+src/recursos/tiles/edi12.png
+src/recursos/tiles/edi13.png
+src/recursos/tiles/edi14.png
+src/recursos/tiles/edi15.png
+src/recursos/tiles/edi16.png
+src/recursos/tiles/edi17.png
+src/recursos/tiles/edi18.png
+src/recursos/tiles/edi19.png
+src/recursos/tiles/edi20.png
+src/recursos/tiles/edi21.png
+src/recursos/tiles/edi22.png
+src/recursos/tiles/edi23.png
+src/recursos/tiles/edi24.png
+src/recursos/tiles/edi25.png
+src/recursos/tiles/edi26.png
+src/recursos/tiles/edi27.png
+src/recursos/tiles/edi28.png
+src/recursos/tiles/edi29.png
+src/recursos/tiles/edi30.png
+src/recursos/tiles/edi31.png
+src/recursos/tiles/edi32.png
+src/recursos/tiles/edi33.png
+src/recursos/tiles/edi34.png
+74
+75
+76
+77
+78
+79
+80
 45 45 45 44 28 29 24 29 30 09 01 01 03 01 01 18 18 06 06 06 06 06 06 06 18  
 46 39 46 40 28 29 24 29 30 09 01 01 03 01 01 06 08 48 48 48 48 48 48 48 12 
 41 42 41 43 28 29 24 29 30 09 01 01 03 01 01 01 01 01 01 01 01 01 01 01 12 
@@ -82,11 +92,11 @@ src/recursos/tiles/park1.png
 01 01 01 01 01 01 01 01 01 04 01 01 01 01 01 04 01 01 01 01 01 01 01 01 01 
 01 01 01 01 01 01 01 01 01 04 01 01 01 01 01 04 01 01 01 01 01 01 01 01 01 
 10 10 10 10 10 10 10 10 10 11 05 05 05 05 05 13 10 10 10 10 10 10 10 10 10 
-00 00 00 00 00 00 00 00 00 09 01 01 01 01 01 12 00 00 00 00 00 00 00 00 00 
-00 00 00 00 00 00 00 00 00 09 01 01 03 01 01 12 00 00 00 00 00 00 00 00 00 
-00 00 00 00 00 00 00 00 00 09 01 01 03 01 01 12 00 00 00 00 00 00 00 00 00 
-00 00 00 00 00 00 00 00 00 09 01 01 03 01 01 12 00 00 00 00 00 00 00 00 00 
-00 00 00 00 00 00 00 00 00 09 01 01 03 01 01 12 00 00 00 00 00 00 00 00 00 
-00 00 00 00 00 00 00 00 00 09 01 01 03 01 01 12 00 00 00 00 00 00 00 00 00 
+18 18 18 18 51 52 52 52 53 09 01 01 01 01 01 12 71 73 73 73 73 73 73 73 72 
+21 21 21 21 57 56 56 56 55 09 01 01 03 01 01 12 70 45 45 45 45 45 45 45 44 
+21 21 21 21 65 67 61 67 66 09 01 01 03 01 01 12 68 37 37 37 39 37 37 37 40 
+21 21 21 21 65 67 61 67 66 09 01 01 03 01 01 12 69 41 41 41 42 41 41 41 43 
+21 21 21 21 62 64 60 64 63 09 01 01 03 01 01 12 68 37 37 37 39 37 37 37 40 
+21 21 21 21 65 67 61 67 66 09 01 01 03 01 01 12 34 35 35 35 38 35 35 35 36 
 %
 

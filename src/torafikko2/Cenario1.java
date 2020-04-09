@@ -81,7 +81,7 @@ public class Cenario1 {
             }
         }
 
-        int prioridade1 = 0;
+        int prioridade1 = 1;
                 //(int) (Math.random() * (npc.size() - 1));
         int prioridade2 = 0;
                 //(int) (Math.random() * (npc2.length - 1));
@@ -123,10 +123,24 @@ public class Cenario1 {
             Animation poste1 = new Animation("src\\recursos\\tiles\\post.png");poste1.x= 500;poste1.y=45;
             Animation poste2 = new Animation("src\\recursos\\tiles\\post.png");poste2.x= 520;poste2.y=92;
             Animation poste3 = new Animation("src\\recursos\\tiles\\post.png");poste3.x= 730;poste3.y=92;
+            Animation poste4 = new Animation("src\\recursos\\tiles\\post.png");poste4.x= 0;poste4.y=120;
+            Animation poste5 = new Animation("src\\recursos\\tiles\\post.png");poste5.x= 160;poste5.y=120;
+            Animation poste6 = new Animation("src\\recursos\\tiles\\semaf.png");poste6.x= 295;poste6.y=120;
+            Animation poste7 = new Animation("src\\recursos\\tiles\\post.png");poste7.x= 295;poste7.y=-10;
+            Animation poste8 = new Animation("src\\recursos\\tiles\\post.png");poste8.x= 52;poste8.y=310;
+            Animation poste9 = new Animation("src\\recursos\\tiles\\post.png");poste9.x= 230;poste9.y=310;
+            Animation poste10 = new Animation("src\\recursos\\tiles\\post.png");poste10.x= 595;poste10.y=310;
+            Animation poste11 = new Animation("src\\recursos\\tiles\\post.png");poste11.x= 740;poste11.y=310;
+            Animation poste12 = new Animation("src\\recursos\\tiles\\post.png");poste12.x= 296;poste12.y=470;
+            Animation poste13 = new Animation("src\\recursos\\tiles\\post.png");poste13.x= 472;poste13.y=510;
+            Animation poste14 = new Animation("src\\recursos\\tiles\\semaf1.png");poste14.x= 475;poste14.y=310;
             
             Animation hot = new Animation("src\\recursos\\tiles\\hot.png");hot.x=595;hot.y=125;
             Animation correio = new Animation("src\\recursos\\tiles\\correio.png");correio.x=680;correio.y=185;
             Animation banco = new Animation("src\\recursos\\tiles\\banco1.png");banco.x=703;banco.y=-3;
+            
+            Animation fut = new Animation("src\\recursos\\tiles\\fut3.png");fut.x=7;fut.y=453;
+            Animation grade = new Animation("src\\recursos\\tiles\\grade.png");grade.x=-6;grade.y=388;
            if (teclado.keyDown(Keyboard.S_KEY)) {
                 cena.changeTile(7, 9, 20);
             } else if (teclado.keyDown(Keyboard.SPACE_KEY)) {
@@ -164,20 +178,15 @@ public class Cenario1 {
 
                 npc.get(i).draw();
 
-                //npc.get(i).perseguir(jogador.x, jogador.y);
+                npc.get(i).perseguir(jogador.x, jogador.y);
                 npc.get(i).morrer();
-                //jogador.rota(npc.get(i));
-                
+                if(i!=prioridade1){
+                jogador.rota(npc.get(i));
+                }
                 boolean colidiu = false;
                 for (int j = 0; j < npc3.length; j++) {
 
-                    /* if(colidiu == false){ 
-                    if(npc.get(prioridade1).collided(npc3[j])){
-                       colidiu = true;
-                             
-                     }
-                    }else{fim.draw(); }*/
-                    if (npc.get(i).collided(npc3[j]) && i != prioridade1) {
+                   if (npc.get(i).collided(npc3[j]) && i != prioridade1) {
 
                         npc.get(i).x = 10_000;
                         npc.get(i).velocidade = 0.0;
@@ -200,7 +209,7 @@ public class Cenario1 {
 
                     }
                     if (colidiu == false && victory==false) {
-                         janela.drawText("id: " + i, (int) npc.get(i).x + 5, (int) npc.get(i).y + 3, Color.yellow);
+                        // janela.drawText("id: " + i, (int) npc.get(i).x + 5, (int) npc.get(i).y + 3, Color.yellow);
                          
                         if (npc.get(prioridade1).x == npc3[j].x) {
                             fim.draw();
@@ -223,6 +232,10 @@ public class Cenario1 {
                         tree.hide();tree1.hide();tree2.hide();tree3.hide();tree4.hide();tree5.hide();tree6.hide();tree7.hide();
                         poste.hide();poste1.hide();poste2.hide();poste3.hide();
                         hot.hide();correio.hide();banco.hide();
+                         poste4.hide(); poste5.hide(); poste6.hide(); poste7.hide(); poste8.hide(); poste9.hide(); poste10.hide();
+                         poste11.hide(); poste12.hide(); poste13.hide(); poste14.hide();
+                          fut.hide();
+                           grade.hide();
                         for (int l = 0; l < npc.size(); l++) {
                             npc.get(l).hide();
                             npc.get(l).velocidade = 0.0;
@@ -275,7 +288,7 @@ public class Cenario1 {
 
                     }
                     if (colidiu2 == false && victory == false) {
-                       janela.drawText("id: " + (npc.size() + 1 + i), (int) npc2[i].x + 5, (int) npc2[i].y + 3, Color.yellow);
+                      // janela.drawText("id: " + (npc.size() + 1 + i), (int) npc2[i].x + 5, (int) npc2[i].y + 3, Color.yellow);
                         if (npc.get(prioridade1).x == npc4[k].x) {
                             fim.draw();
                             colidiu2 = true;
@@ -294,6 +307,10 @@ public class Cenario1 {
                          tree.hide();tree1.hide();tree2.hide();tree3.hide();tree4.hide();tree5.hide();tree6.hide();tree7.hide();
                         poste.hide();poste1.hide();poste2.hide();poste3.hide();
                         hot.hide();correio.hide();banco.hide();
+                         poste4.hide(); poste5.hide(); poste6.hide(); poste7.hide(); poste8.hide(); poste9.hide(); poste10.hide();
+                         poste11.hide(); poste12.hide(); poste13.hide(); poste14.hide();
+                         fut.hide();
+                        grade.hide();
                          for (int l = 0; l < npc.size(); l++) {
                             npc.get(l).hide();
                             npc.get(l).velocidade = 0.0;
@@ -362,6 +379,10 @@ public class Cenario1 {
                          tree.hide();tree1.hide();tree2.hide();tree3.hide();tree4.hide();tree5.hide();tree6.hide();tree7.hide();
                         poste.hide();poste1.hide();poste2.hide();poste3.hide();
                         hot.hide();correio.hide();banco.hide();
+                         poste4.hide(); poste5.hide(); poste6.hide(); poste7.hide(); poste8.hide(); poste9.hide(); poste10.hide();
+                             poste11.hide(); poste12.hide(); poste13.hide(); poste14.hide();
+                         fut.hide();
+                          grade.hide();
                          for (int l = 0; l < npc.size(); l++) {
                             npc.get(l).hide();
                             npc.get(l).velocidade = 0.0;
@@ -399,10 +420,11 @@ public class Cenario1 {
                 npc2[i].caminho(cena);
 
                 npc2[i].draw();
-                //npc2[i].perseguir(jogador2.x, jogador2.y);
+                npc2[i].perseguir(jogador2.x, jogador2.y);
                 npc2[i].morrer();
+                if(i!=prioridade2){
                 jogador2.rota(npc2[i]);
-                
+                }
                  boolean colidiu3 = false;
                 for (int j = 0; j < npc3.length; j++) {
 
@@ -444,6 +466,11 @@ public class Cenario1 {
                          car.hide();car1.hide();car2.hide();car3.hide();
                          tree.hide();tree1.hide();tree2.hide();tree3.hide();tree4.hide();tree5.hide();tree6.hide();tree7.hide();
                         poste.hide();poste1.hide();poste2.hide();poste3.hide();
+                          hot.hide();correio.hide();banco.hide();
+                         poste4.hide(); poste5.hide(); poste6.hide(); poste7.hide(); poste8.hide(); poste9.hide(); poste10.hide();
+                         poste11.hide(); poste12.hide(); poste13.hide(); poste14.hide();
+                          fut.hide();
+                         grade.hide();
                         hot.hide();correio.hide();banco.hide();
                          for (int l = 0; l < npc.size(); l++) {
                             npc.get(l).hide();
@@ -517,6 +544,10 @@ public class Cenario1 {
                          tree.hide();tree1.hide();tree2.hide();tree3.hide();tree4.hide();tree5.hide();tree6.hide();tree7.hide();
                         poste.hide();poste1.hide();poste2.hide();poste3.hide();
                         hot.hide();correio.hide();banco.hide();
+                         poste4.hide(); poste5.hide(); poste6.hide(); poste7.hide(); poste8.hide(); poste9.hide(); poste10.hide();
+                         poste11.hide(); poste12.hide(); poste13.hide(); poste14.hide();
+                              fut.hide();
+                         grade.hide();
                          for (int l = 0; l < npc.size(); l++) {
                             npc.get(l).hide();
                             npc.get(l).velocidade = 0.0;
@@ -559,7 +590,7 @@ public class Cenario1 {
                 npc3[i].y += cena.getYOffset();
                 npc3[i].caminho(cena);
 
-                //npc3[i].draw();
+                npc3[i].draw();
 
                 npc3[i].perseguir(jogador3.x, jogador3.y);
                 npc3[i].morrerVert1();
@@ -579,7 +610,7 @@ public class Cenario1 {
                 npc4[i].y += cena.getYOffset();
                 npc4[i].caminho(cena);
 
-                //npc4[i].draw();
+                npc4[i].draw();
 
                 npc4[i].perseguir(jogador4.x, jogador4.y);
                 npc4[i].morrerVert2();
@@ -592,7 +623,7 @@ public class Cenario1 {
 
                 }
 
-              //  janela.drawText("id: " + (npc3.length + npc2.length + npc.size() + 1 + i), (int) npc4[i].x + 5, (int) npc4[i].y + 3, Color.yellow);
+             
             }
 
             jogador.draw();
@@ -609,16 +640,22 @@ public class Cenario1 {
              car.draw();car1.draw();car2.draw();car3.draw();
              tree.draw();tree1.draw();tree2.draw();tree3.draw();tree4.draw();tree5.draw();tree6.draw();tree7.draw();
              poste.draw();poste1.draw();poste2.draw();poste3.draw();
+             poste4.draw();poste5.draw();poste6.draw();poste7.draw();poste8.draw();poste9.draw();poste10.draw();
+             poste11.draw();poste12.draw();poste13.draw();poste14.draw();
              hot.draw();
              correio.draw();
              banco.draw();
-             //npc.vida(janela);
-            janela.drawText("Prioridade I: " + prioridade1, 2, 12, Color.WHITE, new Font("arial", Font.BOLD, 12));
-            janela.drawText("Prioridade II: " + (prioridade2+npc.size()), 2, 20, Color.WHITE, new Font("arial", Font.BOLD, 12));
+             fut.draw();
+            
+             grade.draw();
+            
+            //janela.drawText("Prioridade I: " + prioridade1, 2, 12, Color.WHITE, new Font("arial", Font.BOLD, 12));
+            //janela.drawText("Prioridade II: " + (prioridade2+npc.size()), 2, 20, Color.WHITE, new Font("arial", Font.BOLD, 12));
             janela.update();
+            
+            
+            
             //System.out.println("X: " +jogador.getX() + " Y: " + jogador.getY());
-
-            //jogador.moveTo(754.0, 229.0, 1.0);
         }
     }
 
