@@ -76,6 +76,7 @@ public class Jogador extends Ator {
     public boolean rota(Npc npc) {
         if (this.collided(npc)) {
            npc.x = 10_000;
+           npc.velocidade=0.0; 
            return true;
         }
     return false;
@@ -85,6 +86,7 @@ public class Jogador extends Ator {
         if (this.collided(npc)) {
            npc.x = 328;
            npc.y = -550;
+           
         }
 
     }

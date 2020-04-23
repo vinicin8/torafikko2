@@ -14,14 +14,56 @@ public class Npc extends Ator{
      private double ataque = 1;
  
     public Npc(int x, int y) {
-        super(URL.sprite("infinity.png"), 12);
+        super(URL.sprite("ultimate.png"), 12);
         this.x = x;
         this.y = y;
         this.setTotalDuration(2000);
-        this.velocidade= 0.6;
+        this.velocidade= 1.6;
     }
     
     public void perseguir(double x, double y){
+        if (this.x > x && this.y <= y + 50 && this.y >= y - 50) {
+            moveTo(x, y, velocidade);
+            if (direcao != 1) {
+                setSequence(2, 3);
+                this.width=38;
+                direcao = 1;
+            }
+            movendo = true;
+        } else if (this.x < x && this.y <= y + 50 && this.y >= - 50) {
+            moveTo(x, y, velocidade);
+            if (direcao != 2) {
+                setSequence(1, 2);
+                 this.width=38;
+            }
+            movendo = true;
+        } else if (this.y > y) {
+            moveTo(x, y, velocidade);
+            if (direcao != 4) {
+                setSequence(7, 8);
+                direcao = 4;
+                this.width=38;
+                this.height=32;
+            }
+            movendo = true;
+        } else if (this.y < y) {
+            moveTo(x, y, velocidade);
+            if (direcao != 5) {
+                setSequence(11, 12);
+                this.width=38;
+                this.height=32;
+                direcao = 5;
+            }
+            movendo = true;
+
+        }
+        if (movendo) {
+            update();
+            movendo = false;
+        }
+    }
+    
+    public void perseguir1(double x, double y){
         if (this.x > x && this.y <= y + 50 && this.y >= y - 50) {
             moveTo(x, y, velocidade);
             if (direcao != 1) {
@@ -62,6 +104,7 @@ public class Npc extends Ator{
             movendo = false;
         }
     }
+    
     public boolean morrer() {
         if (Npc.energia <= 0) {
             this.velocidade = 0;

@@ -18,7 +18,7 @@ import jplay.TileInfo;
  */
 public class Ator extends Sprite{
         Controle controle = new Controle();
-    double velocidade = 2.0;
+    double velocidade = 0.6;
     int direcao = 3;
     boolean movendo = false;
     static double energia = 10.0;

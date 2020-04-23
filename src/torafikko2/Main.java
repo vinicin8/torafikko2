@@ -13,12 +13,13 @@ public class Main {
     public static void main(String[] args) {
         Window janela = new Window(800, 600);
         Keyboard teclado = janela.getKeyboard();
-        GameImage inicio = new GameImage("src\\recursos\\fundos\\main.png");
-        while (true) {            
-            inicio.draw();
-            if(teclado.keyDown(Keyboard.ENTER_KEY)){
-                  new Cenario1(janela);
-            }
+        GameImage main = new GameImage("src\\recursos\\fundos\\main.png");
+        while (true) {  
+            main.draw(); 
+            if(teclado.keyDown(Keyboard.ENTER_KEY))
+                new Cenario1(janela);
+            
+           
             janela.update();
         }
     }
