@@ -25,11 +25,11 @@ public class Cenario1 {
         cena = new Scene();
         cena.loadFromFile(URL.scenario("scene.scn"));
         teclado = janela.getKeyboard();
-        jogador = new Jogador(798, 229);
+        jogador = new Jogador(798, 227);
         jogador2 = new Jogador(-54, 337);
         jogador3 = new Jogador(328, 593);
         jogador4 = new Jogador(412, -42);
-//jogador5 = new Jogador(798, 264);
+jogador5 = new Jogador(798, 266);
         //npc = new Npc[14];
         npc2 = new Npc[10];
         npc3 = new Npc[4];
@@ -42,12 +42,15 @@ public class Cenario1 {
      
     private void run() {
         ArrayList<Npc> npc = new ArrayList<>();
-
+int prioridade1 = (int) (Math.random() * (npc.size() - 2)+1);
+int prioridade2 = (int) (Math.random() * (npc2.length - 2)+1);
         for (int i = 0; i < 14; i++) {
-            if (i == 0) {
-                npc.add(0, new Npc(-200, 229));
-            } else {
-                npc.add(i, new Npc(-210 * (i + i), 229));
+            if (i == 0 && i!=prioridade1 && i!=prioridade2) {
+                npc.add(0, new Npc(-200, 227));
+            } else if(i!=prioridade1&& i!=prioridade2) {
+                npc.add(i, new Npc(-210 * (i + i), 227));
+            } else{
+            npc.add(i, new Npc(-210 * (i + i), 266));
             }
         }
         /*
@@ -79,13 +82,14 @@ public class Cenario1 {
             } 
         }
 
-        int prioridade1 = 3;
-                //(int) (Math.random() * (npc.size() - 1));
-        int prioridade2 = 0;
-                //(int) (Math.random() * (npc2.length - 1));
- Time tempo = new Time(710, 580, true);
+        
+        
+
  teclado.addKey(KeyEvent.VK_R);
-  
+ teclado.addKey(KeyEvent.VK_A);
+  teclado.addKey(KeyEvent.VK_E);
+  boolean auto = false;
+  boolean apertou = false;
         while (true) {
           if(teclado.keyDown(KeyEvent.VK_R)){new Cenario1(janela);}
             
@@ -179,7 +183,7 @@ public class Cenario1 {
             }
             
             
-             if(teclado.keyDown(Keyboard.SPACE_KEY)){System.exit(0);}
+             if(teclado.keyDown(KeyEvent.VK_E)){System.exit(0);}
             //jogador.controle(janela, teclado);
             
                 
@@ -203,13 +207,20 @@ public class Cenario1 {
                 npc.get(i).caminho(cena);
 
                 npc.get(i).draw();
+                if(i==prioridade1||i==prioridade2){
+                npc.get(i).perseguir1(jogador5.x, jogador5.y);
+                        jogador5.rota(npc.get(i));
+                }else{
+                jogador.rota(npc.get(i));
+                npc.get(i).perseguir(jogador.x, jogador.y);
+                }
+                       
                 
-                
-               npc.get(i).perseguir(jogador.x, jogador.y);
+               
               
                 npc.get(i).morrer();
                 
-                jogador.rota(npc.get(i));
+                
                 
                
                 if (i > 0 ) {
@@ -258,7 +269,9 @@ public class Cenario1 {
                      }
                 }
                 
-                
+                if(npc.get(prioridade2).collided(npc.get(prioridade1))){
+                npc.get(prioridade1).x = npc.get(prioridade2).x - npc.get(prioridade1).width;
+                }
                
                  if (i > 1 ) {
                    
@@ -275,10 +288,12 @@ public class Cenario1 {
                  
                  
                      int id = 54;
-                    if(npc.get(i).x>54){
+                    if(npc.get(i).x>54 && i!=prioridade1&& i!=prioridade2){
                   
                      janela.drawText("id:"+(id*i+3), (int)npc.get(i).x,(int) npc.get(i).y+5, Color.ORANGE);
                        
+                    } else if(npc.get(i).x>54&& (i==prioridade1 || i==prioridade2)){
+                    janela.drawText("id:"+(id*i+3), (int)npc.get(i).x,(int) npc.get(i).y+5, Color.MAGENTA);
                     }
 
             }
@@ -365,31 +380,63 @@ public class Cenario1 {
 
                 }
                 
+                
+               
+                
+                if(teclado.keyDown(KeyEvent.VK_A)){
+                      auto=true;
+                                   }
+               
                 if(npc3[i].collided(barreira3)||npc3[i].collided(barreira5)||npc3[i].collided(barreira4)){
                     pare.draw();
                      siga.hide();
                      pare1.draw();
                      siga1.hide();
+                     if(auto==true){
+                cena.changeTile(7, 9, 20);
+                cena.changeTile(8, 9, 20);
+                cena.changeTile(11, 15, 20);
+                cena.changeTile(10, 15, 20);}
                 } else if(npc4[i].collided(barreira6)||npc4[i].collided(barreira7)||npc4[i].collided(barreira8)){
                 pare.draw();
                 siga.hide();
                 pare1.draw();
-                     siga1.hide();
+                siga1.hide();
+                if(auto==true){
+                cena.changeTile(7, 9, 20);
+                cena.changeTile(8, 9, 20);
+                cena.changeTile(11, 15, 20);
+                cena.changeTile(10, 15, 20);}
               }else if(npc4[2].collided(barreira9)&&npc3[3].collided(barreira3)) {
                 pare.draw();
                 siga.hide();
                 pare1.draw();
-                     siga1.hide();
+                siga1.hide();
+                if(auto==true){
+                cena.changeTile(7, 9, 20);
+                cena.changeTile(8, 9, 20);
+                cena.changeTile(11, 15, 20);
+                cena.changeTile(10, 15, 20);}
                 }else if(npc4[2].collided(barreira9)&&npc3[1].collided(barreira3)) {
                 pare.draw();
                 siga.hide();
                 pare1.draw();
-                     siga1.hide();
+                siga1.hide();
+                if(auto==true){
+                cena.changeTile(7, 9, 20);
+                cena.changeTile(8, 9, 20);
+                cena.changeTile(11, 15, 20);
+                cena.changeTile(10, 15, 20);}
                 }else if(npc4[2].collided(barreira9)&&npc3[2].collided(barreira3)) {
                 pare.draw();
                 siga.hide();
                 pare1.draw();
-                     siga1.hide();
+                siga1.hide();
+                if(auto==true){
+                cena.changeTile(7, 9, 20);
+                cena.changeTile(8, 9, 20);
+                cena.changeTile(11, 15, 20);
+                cena.changeTile(10, 15, 20);}
                 }else if(npc4[1].collided(barreira9)&&npc3[3].collided(barreira4)) {
                 pare.draw();
                 siga.hide();
@@ -400,51 +447,101 @@ public class Cenario1 {
                 siga.hide();
                 pare1.draw();
                 siga1.hide();
+                if(auto==true){
+                cena.changeTile(7, 9, 20);
+                cena.changeTile(8, 9, 20);
+                cena.changeTile(11, 15, 20);
+                cena.changeTile(10, 15, 20);}
                 }else if(npc4[3].collided(barreira9)&&npc3[2].collided(barreira4)){
                 pare.draw();
                 siga.hide();
                 pare1.draw();
                 siga1.hide();
+                if(auto==true){
+                cena.changeTile(7, 9, 20);
+                cena.changeTile(8, 9, 20);
+                cena.changeTile(11, 15, 20);
+                cena.changeTile(10, 15, 20);}
                 }else if(npc4[3].collided(barreira9)&&npc3[1].collided(barreira4)){
                 pare.draw();
                 siga.hide();
                 pare1.draw();
                 siga1.hide();
+                if(auto==true){
+                cena.changeTile(7, 9, 20);
+                cena.changeTile(8, 9, 20);
+                cena.changeTile(11, 15, 20);
+                cena.changeTile(10, 15, 20);}
                 }else if(npc4[3].collided(barreira9)&&npc3[2].collided(barreira4)){
                 pare.draw();
                 siga.hide();
                 pare1.draw();
                 siga1.hide();
+                if(auto==true){
+                cena.changeTile(7, 9, 20);
+                cena.changeTile(8, 9, 20);
+                cena.changeTile(11, 15, 20);
+                cena.changeTile(10, 15, 20);}
                 }else if(npc4[2].collided(barreira9)&&npc3[1].collided(barreira4)){
                 pare.draw();
                 siga.hide();
                 pare1.draw();
                 siga1.hide();
+                if(auto==true){
+                cena.changeTile(7, 9, 20);
+                cena.changeTile(8, 9, 20);
+                cena.changeTile(11, 15, 20);
+                cena.changeTile(10, 15, 20);}
                 }else if(npc4[2].collided(barreira9)&&npc3[3].collided(barreira4)){
                 pare.draw();
                 siga.hide();
                 pare1.draw();
                 siga1.hide();
+                if(auto==true){
+                cena.changeTile(7, 9, 20);
+                cena.changeTile(8, 9, 20);
+                cena.changeTile(11, 15, 20);
+                cena.changeTile(10, 15, 20);}
                 }else if(npc4[2].collided(barreira9)&&npc3[0].collided(barreira4)){
                 pare.draw();
                 siga.hide();
                 pare1.draw();
                 siga1.hide();
+                if(auto==true){
+                cena.changeTile(7, 9, 20);
+                cena.changeTile(8, 9, 20);
+                cena.changeTile(11, 15, 20);
+                cena.changeTile(10, 15, 20);}
                 }else if(npc4[3].collided(barreira9)&&npc3[0].collided(barreira4)){
                 pare.draw();
                 siga.hide();
                 pare1.draw();
                 siga1.hide();
+                if(auto==true){
+                cena.changeTile(7, 9, 20);
+                cena.changeTile(8, 9, 20);
+                cena.changeTile(11, 15, 20);
+                cena.changeTile(10, 15, 20);}
                 }else if(npc4[3].collided(barreira9)&&npc3[3].collided(barreira4)){
                 pare.draw();
                 siga.hide();
                 pare1.draw();
                 siga1.hide();
-                }else if(npc4[2].collided(barreira9)){
+                if(auto==true){
+                cena.changeTile(7, 9, 20);
+                cena.changeTile(8, 9, 20);
+                cena.changeTile(11, 15, 20);
+                cena.changeTile(10, 15, 20);}
+                }else if(npc4[2].collided(barreira9)&&npc3[0].collided(barreira3)==false&&npc3[0].collided(barreira5)==false){
                 siga.draw();
                 pare.hide();
                 siga1.draw();
                 pare1.hide();
+                if(auto==true){
+                cena.changeTile(7, 9, 04);
+                cena.changeTile(8, 9, 04);
+                cena.changeTile(11, 15, 04);
+                cena.changeTile(10, 15, 04);}
                 }
              
               /*  janela.drawText("barreira", (int) barreira.x,(int) barreira.y, Color.yellow);
@@ -457,7 +554,7 @@ public class Cenario1 {
                 janela.drawText("barreira8", (int) barreira8.x,(int) barreira8.y, Color.yellow); 
                 janela.drawText("barreira9", (int) barreira9.x,(int) barreira9.y, Color.yellow); 
                 janela.drawText("barreira10", (int) barreira10.x,(int) barreira10.y, Color.yellow); 
-              */  
+             */
             }
 
             for (int i = 0; i < npc4.length; i++) {
@@ -498,7 +595,7 @@ public class Cenario1 {
             jogador2.draw();
             jogador3.draw();
             jogador4.draw();
-            //jogador5.draw();
+            jogador5.draw();
              porta.draw();porta1.draw();
              teto.draw();
              tenda.draw();tendaa.draw();tenda1.draw();tenda2.draw();
@@ -515,7 +612,8 @@ public class Cenario1 {
              banco.draw();
              fut.draw();
              grade.draw();
-             tempo.draw();
+             
+             
              
             /*if(tempo.getSecond()>10&&tempo.getSecond()<=15){
             n3.draw();

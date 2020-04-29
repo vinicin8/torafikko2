@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
         Window janela = new Window(800, 600);
         Keyboard teclado = janela.getKeyboard();
-        GameImage main = new GameImage("src\\recursos\\fundos\\main.png");
+        Animation main = new Animation("src\\recursos\\fundos\\main.png");
         while (true) {  
             main.draw(); 
             if(teclado.keyDown(Keyboard.ENTER_KEY))
