@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package torafikko2;
 
 import java.awt.Point;
@@ -12,10 +8,6 @@ import jplay.Scene;
 import jplay.Sprite;
 import jplay.TileInfo;
 
-/**
- *
- * @author alexandre henrique
- */
 public class Ator extends Sprite{
         Controle controle = new Controle();
     double velocidade = 0.6;
@@ -37,16 +29,16 @@ public class Ator extends Sprite{
        Point min = new Point((int)this.x,(int)this.y);
        Point max = new Point((int)this.x + this.width,(int)this.y + this.height);
        
-       Vector<?> tiles = cena.getTilesFromPosition(min, max);
+       Vector<?> tiles = cena.getTilesFromPosition(min,max);
        
        for (int i = 0; i < tiles.size(); i++) {
            TileInfo tile = (TileInfo) tiles.elementAt(i);
            
            if(controle.colisao(this,tile) == true){
                if(colisaoVertical(this,tile)){
-               if(tile.y + tile.height - 2 < this.y){
+               if(tile.y + tile.height - 4 < this.y){
                    this.y = tile.y + tile.height;
-               } else if(tile.y > this.y + tile.height - 2 ){
+               } else if(tile.y > this.y + tile.height - 4 ){
                    this.y = tile.y - this.height;
                }
            }
@@ -54,7 +46,7 @@ public class Ator extends Sprite{
                 if(tile.x > this.x + tile.width - 4 ){
                    this.x = tile.x - this.width;
                } else if(tile.x + tile.width - 4 < this.x ) {
-                    this.x = tile.x + tile.width;
+                    this.x = tile.x + tile.width ;
                 }
            }
        }

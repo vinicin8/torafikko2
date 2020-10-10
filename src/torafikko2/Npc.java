@@ -1,24 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package torafikko2;
 import java.awt.Color;
+import java.awt.event.KeyEvent;
 import jplay.*;
-/**
- *
- * @author alexandre henrique
- */
+
 public class Npc extends Ator{
+
+    
      private double ataque = 1;
- 
+  
     public Npc(int x, int y) {
         super(URL.sprite("ultimate.png"), 12);
         this.x = x;
         this.y = y;
         this.setTotalDuration(2000);
         this.velocidade= 1.6;
+     
     }
     
     public void perseguir(double x, double y){
@@ -142,6 +139,7 @@ public class Npc extends Ator{
         }
         return false;
     } 
+    
 }
     
 

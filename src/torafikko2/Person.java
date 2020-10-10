@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package torafikko2;
 
 import java.awt.Color;
@@ -6,13 +10,17 @@ import java.awt.Point;
 import java.util.Vector;
 import jplay.*;
 
-public class Jogador extends Ator {
+/**
+ *
+ * @author 20191148060007
+ */
+public class Person extends Ator {
     
    static double energia = 1000;
      private double ataque = 1;
   
-    public Jogador(int x,int y) {
-       super(URL.sprite("carro.png"),12);
+    public Person(int x,int y) {
+       super(URL.sprite("npc.png"),20);
        this.x = x;
        this.y = y;
        this.setTotalDuration(2000);
@@ -25,7 +33,7 @@ public class Jogador extends Ator {
             }
 
             if (direcao != 1) {
-                setSequence(2,3);
+                setSequence(4,8);
                 direcao = 1;
             }
             movendo = true;
@@ -34,7 +42,7 @@ public class Jogador extends Ator {
                 this.x += velocidade;
             }
             if (direcao != 2) {
-                setSequence(4, 6);
+                setSequence(8, 12);
                 direcao = 2;
             }
             movendo = true;
@@ -43,7 +51,7 @@ public class Jogador extends Ator {
                 this.y -= velocidade;
             }
             if (direcao != 4) {
-                setSequence(7, 8);
+                setSequence(12, 16);
                 direcao = 4;
             }
             movendo = true;
@@ -52,7 +60,7 @@ public class Jogador extends Ator {
                 this.y += velocidade;
             }
             if (direcao != 5) {
-                setSequence(11, 12);
+                setSequence(0, 4);
                 direcao = 5;
             }
             movendo = true;
@@ -64,37 +72,6 @@ public class Jogador extends Ator {
     }
     
  
-    
-    public boolean rota(Npc npc) {
-        if (this.collided(npc)) {
-           npc.x = 10_000;
-           npc.velocidade=0.0; 
-           npc.movendo=false;
-           npc.direcao=0;
-           
-      
-           return true;
-        }
-    return false;
-    }
-
-    public void rota2(Npc npc) {
-        if (this.collided(npc)) {
-           npc.x = 328;
-           npc.y =  0;
-//-550;
-           
-        }
-
-    }
-    
-     public void rota3(Npc npc) {
-        if (this.collided(npc)) {
-           npc.x = 432;
-           npc.y = 600;
-        }
-
-    }
 }
    
 
