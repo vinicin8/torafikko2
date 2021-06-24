@@ -18,8 +18,7 @@ public class Main {
             main.draw(); 
             if(teclado.keyDown(Keyboard.ENTER_KEY))
                 new Cenario1(janela);
-            
-           
+
             janela.update();
         }
     }

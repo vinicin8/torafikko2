@@ -169,14 +169,14 @@ public class Cenario1 {
             Animation pare = new Animation("src\\recursos\\tiles\\pare.png");pare.x=250;pare.y=305;
             Animation siga1 = new Animation("src\\recursos\\tiles\\siga.png");siga1.x=500;siga1.y=126;
             Animation pare1 = new Animation("src\\recursos\\tiles\\pare.png");pare1.x=500;pare1.y=126;
-            Animation obs = new Animation("src\\recursos\\tiles\\rock.png");obs.x=212;obs.y=343;
+           // Animation obs = new Animation("src\\recursos\\tiles\\rock.png");obs.x=212;obs.y=343;
             
              if(teclado.keyDown(KeyEvent.VK_E)){System.exit(0);}
                 
-            p1.controle(janela, teclado);
+            //p1.controle(janela, teclado);
             //cena.moveScene(p1);
-            p1.x += cena.getXOffset();
-            p1.y += cena.getYOffset();
+            //p1.x += cena.getXOffset();
+            //p1.y += cena.getYOffset();
             cena.moveScene(jogador2);
             jogador.x += cena.getXOffset();
             jogador.y += cena.getYOffset(); 
@@ -216,11 +216,9 @@ public class Cenario1 {
                 cena.changeTile(11, 9, 04);
                 cena.changeTile(10, 9, 04);
                     }
-               
+
                 if(sair==false){
-                    if(apertou==false){
-                    obs.draw();
-                    }
+/*
                  if(npc.get(i).collided(obs)){
                     janela.drawText("|||Remova a Pedra|||",(int) obs.x-45,(int) obs.y+25, Color.red, new Font("Arial", Font.PLAIN,12));
                     cena.changeTile(11, 0, 77);
@@ -244,7 +242,7 @@ public class Cenario1 {
                        cena.changeTile(11, 0, 1);
                         sair=true;  
                     }
-                 }
+                 }*/
             }
                               
                 if (i > 0 ) {
@@ -457,8 +455,8 @@ public class Cenario1 {
                     }
 
                 }            
-                            
-                if(teclado.keyDown(KeyEvent.VK_A)){auto=true;}
+                   //teclado.keyDown(KeyEvent.VK_A)
+                if(1==1){auto=true;}
                  if(ir==true){
                  cena.changeTile(7, 15, 04);
                  cena.changeTile(8, 15, 04);
@@ -622,10 +620,8 @@ public class Cenario1 {
      }
     if(dead==true){fdead.draw();}
     */
+            janela.delay(8);
             janela.update();
-             
-            
-            
            
         }
     

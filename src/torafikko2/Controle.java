@@ -7,10 +7,6 @@ package torafikko2;
 
 import jplay.*;
 
-/**
- *
- * @author alexandre henrique
- */
 public class Controle {
     
     public boolean colisao(GameObject obj, TileInfo tile){

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="JPlay1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/JPlay.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
